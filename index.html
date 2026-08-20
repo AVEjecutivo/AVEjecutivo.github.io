@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVE — Ecosistemas de gestión de datos con IA para pymes</title>
+<meta name="description" content="Ayudamos a construir tu ecosistema de gestión de datos a través de IA. Ordenamos la información dispersa de tu negocio —banco, SII, correo, planillas— y montamos un sistema que te la entrega al día, sola.">
+<link rel="canonical" href="https://miavejecutivo.com/">
+<meta name="theme-color" content="#0C5A3A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'14'%20fill%3D'%230C5A3A'%2F%3E%3Crect%20x%3D'13'%20y%3D'28'%20width%3D'9'%20height%3D'9'%20rx%3D'2'%20fill%3D'%23FBF6EC'%2F%3E%3Crect%20x%3D'27'%20y%3D'28'%20width%3D'9'%20height%3D'9'%20rx%3D'2'%20fill%3D'%23E7A33A'%2F%3E%3Crect%20x%3D'41'%20y%3D'28'%20width%3D'9'%20height%3D'9'%20rx%3D'2'%20fill%3D'%23E1583D'%2F%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://miavejecutivo.com/">
+<meta property="og:site_name" content="AVE">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="AVE — El orden que te da el control">
+<meta property="og:description" content="Ayudamos a construir tu ecosistema de gestión de datos a través de IA. Ordenamos la información dispersa de tu negocio —banco, SII, correo, planillas— y montamos un sistema que te la entrega al día, sola.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AVE — El orden que te da el control">
+<meta name="twitter:description" content="Ayudamos a construir tu ecosistema de gestión de datos a través de IA. Ordenamos la información dispersa de tu negocio —banco, SII, correo, planillas— y montamos un sistema que te la entrega al día, sola.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crema:#FBF6EC; --tinta:#17150F; --verde:#0C5A3A; --verde-osc:#0A4530;
+    --ambar:#E7A33A; --coral:#E1583D; --coral-txt:#BC4128;
+    --gris:#6E685B; --gris-osc:#3A362C; --linea:#D9CFB8;
+    --verde-claro:#DCE7DE; --crema-suave:#F4ECDC;
+    --gutter:clamp(18px,5vw,64px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--crema); color:var(--tinta);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    overflow-x:clip;
+  }
+  a{color:var(--verde); text-decoration:none;}
+  p{margin:0 0 16px;}
+  .wrap{max-width:1180px; margin:0 auto; padding-left:var(--gutter); padding-right:var(--gutter);}
+
+  /* ── Masthead ── */
+  .bar{position:sticky; top:0; z-index:30; background:rgba(251,246,236,.92); backdrop-filter:blur(8px); border-bottom:3px solid var(--tinta);}
+  .bar-in{max-width:1180px; margin:0 auto; padding:12px var(--gutter); display:flex; align-items:center; justify-content:space-between; gap:12px;}
+  .wm{font-weight:900; font-size:26px; letter-spacing:-.04em; line-height:1; color:var(--tinta);}
+  .wm span{color:var(--coral);}
+
+  /* ── Buttons ── */
+  .cta{display:inline-flex; align-items:center; justify-content:center; gap:12px;
+    background:var(--verde); color:var(--crema); font-weight:800; font-size:16px;
+    padding:16px 26px; min-height:52px; border-radius:4px; letter-spacing:-.01em;
+    border:3px solid var(--verde);
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;}
+  .cta .arw{color:var(--ambar); font-size:19px; transition:transform .18s ease;}
+  .cta:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--tinta); background:var(--verde-osc); color:var(--crema);}
+  .cta:hover .arw{transform:translateX(4px);}
+  .cta:focus-visible{outline:3px solid var(--coral); outline-offset:3px;}
+  .cta.sm{padding:11px 18px; min-height:44px; font-size:14px; border-width:2px;}
+  .cta.invert{background:var(--crema); color:var(--verde); border-color:var(--crema);}
+  .cta.invert:hover{box-shadow:5px 5px 0 rgba(0,0,0,.35); background:#fff;}
+  .micro{font-size:13px; font-weight:500; color:var(--gris); margin-top:14px; max-width:44ch; line-height:1.55;}
+
+  /* ── Type ── */
+  .eyebrow{font-weight:800; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--coral-txt); margin:0 0 18px;}
+  h1{font-weight:900; font-size:clamp(36px,9vw,118px); line-height:.94; letter-spacing:-.04em; margin:0; text-wrap:balance; overflow-wrap:break-word;}
+  h2{font-weight:800; font-size:clamp(28px,4.6vw,54px); line-height:1.02; letter-spacing:-.03em; margin:0 0 14px; text-wrap:balance;}
+  .lead{font-size:clamp(16px,2vw,19px); line-height:1.55; color:var(--gris-osc); max-width:52ch;}
+
+  section{padding:clamp(56px,9vh,104px) 0;}
+
+  /* ── Hero ── */
+  .hero{padding-top:clamp(48px,8vh,88px); padding-bottom:clamp(40px,6vh,72px);}
+  .hero h1 .hl{position:relative; display:inline-block; color:var(--verde);}
+  .hero h1 .hl svg{position:absolute; left:-3.5%; bottom:clamp(-13px,-1.1vw,-7px); width:107%; height:auto; transform:rotate(-.7deg);}
+  .hero h1 .hl .brocha{fill:var(--ambar);}
+  .hero h1 .hl .cerda{fill:none; stroke:var(--crema); stroke-width:1.1; stroke-linecap:round; opacity:.55;}
+  .anim .hero h1 .hl svg{clip-path:inset(0 100% 0 0); animation:pincelada .8s .45s cubic-bezier(.35,.7,.3,1) forwards;}
+  @keyframes pincelada{to{clip-path:inset(0);}}
+  .hero .cta-row{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:30px;}
+
+  /* orden motif: scattered squares settle into a row */
+  .orden{display:flex; align-items:flex-end; gap:10px; margin-top:clamp(36px,6vh,60px); padding-top:26px; border-top:3px solid var(--tinta); min-height:74px;}
+  .orden .sq{width:clamp(14px,2.4vw,22px); height:clamp(14px,2.4vw,22px); border-radius:3px; flex:0 0 auto;
+    transition:transform 1s cubic-bezier(.22,1,.36,1); }
+  .orden .sq:nth-child(3n+1){background:var(--verde);}
+  .orden .sq:nth-child(3n+2){background:var(--ambar);}
+  .orden .sq:nth-child(3n){background:var(--coral);}
+  .anim .orden:not(.in) .sq:nth-child(1){transform:translate(6px,-22px) rotate(24deg);}
+  .anim .orden:not(.in) .sq:nth-child(2){transform:translate(-10px,-10px) rotate(-40deg);}
+  .anim .orden:not(.in) .sq:nth-child(3){transform:translate(14px,-26px) rotate(12deg);}
+  .anim .orden:not(.in) .sq:nth-child(4){transform:translate(-6px,-14px) rotate(-16deg);}
+  .anim .orden:not(.in) .sq:nth-child(5){transform:translate(10px,-24px) rotate(48deg);}
+  .anim .orden:not(.in) .sq:nth-child(6){transform:translate(-14px,-8px) rotate(-28deg);}
+  .anim .orden:not(.in) .sq:nth-child(7){transform:translate(8px,-20px) rotate(18deg);}
+  .anim .orden:not(.in) .sq:nth-child(8){transform:translate(-8px,-26px) rotate(-52deg);}
+  .anim .orden:not(.in) .sq:nth-child(9){transform:translate(12px,-12px) rotate(30deg);}
+  .anim .orden:not(.in) .sq:nth-child(10){transform:translate(-12px,-18px) rotate(-12deg);}
+  .orden .sq{transition-delay:calc(var(--i) * 70ms);}
+  .orden .lbl{margin-left:auto; font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gris); align-self:center; text-align:right;}
+
+  /* ── Marquee ── */
+  .marquee{background:var(--tinta); color:var(--crema); overflow:hidden; padding:16px 0; border-top:3px solid var(--tinta); border-bottom:3px solid var(--tinta);}
+  .marquee .track{display:flex; gap:0; width:max-content; animation:mq 26s linear infinite; will-change:transform;}
+  .marquee:hover .track{animation-play-state:paused;}
+  .marquee .chunk{display:flex; gap:28px; padding-right:28px; align-items:center; white-space:nowrap;
+    font-weight:800; font-size:clamp(15px,2vw,19px); letter-spacing:-.01em;}
+  .marquee .dotsep{color:var(--ambar);}
+  @keyframes mq{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ── Banda verde (problema/test) ── */
+  .banda-verde{background:var(--verde); color:var(--crema);}
+  .g2{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(26px,4vw,52px); align-items:start;}
+  .num-xl{font-weight:900; font-size:clamp(72px,11vw,128px); line-height:.8; letter-spacing:-.04em; color:var(--ambar);}
+  .banda-verde h2{color:var(--crema); max-width:16ch; margin-top:18px;}
+  .banda-verde .lead{color:var(--verde-claro);}
+  .test-t{font-weight:800; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--ambar); margin:26px 0 4px;}
+  .test-row{display:flex; gap:14px; padding:15px 0; border-top:1px solid rgba(251,246,236,.25); font-weight:500; font-size:15.5px; line-height:1.45;}
+  .test-row:last-of-type{border-bottom:1px solid rgba(251,246,236,.25);}
+  .test-row .d{color:var(--ambar); font-weight:800; flex:0 0 auto;}
+  .punch{font-weight:800; font-style:italic; font-size:17px; margin:20px 0 0; color:var(--crema);}
+
+  /* ── Método ── */
+  .rule{height:3px; background:var(--tinta); transform-origin:left;}
+  .idx{font-weight:800; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--coral-txt); padding-top:20px; display:block;}
+  .pasos{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(18px,2.6vw,28px); margin-top:32px;}
+  .paso .n{font-weight:900; font-size:clamp(48px,6vw,68px); line-height:.8; letter-spacing:-.045em; color:var(--verde);}
+  .paso.ia .n{color:var(--ambar);}
+  .paso h3{font-weight:800; font-size:18px; line-height:1.2; margin:14px 0 6px;}
+  .paso p{font-size:14px; line-height:1.55; color:var(--gris); margin:0;}
+  .paso{padding-top:16px; border-top:3px solid var(--tinta); transition:transform .25s ease;}
+  .paso:hover{transform:translateY(-4px);}
+
+  /* ── IA con criterio ── */
+  .split{display:grid; grid-template-columns:1fr 1fr; border:3px solid var(--tinta); margin-top:30px;}
+  .split .lado{padding:clamp(24px,3.4vw,40px);}
+  .split .lado.verde{background:var(--verde); color:var(--crema);}
+  .split .lado.crema{background:var(--crema-suave); color:var(--tinta);}
+  .split .big{font-weight:900; font-size:clamp(36px,4.6vw,50px); line-height:.9; letter-spacing:-.03em;}
+  .split .lado.crema .big{color:var(--coral);}
+  .split .cap{font-weight:800; font-size:12px; letter-spacing:.16em; text-transform:uppercase; margin:10px 0 18px;}
+  .split .lado.verde .cap{color:var(--ambar);}
+  .split .lado.crema .cap{color:var(--gris);}
+  .split ul{list-style:none; margin:0; padding:0; font-weight:500; font-size:15px; line-height:2;}
+  .split .banda-tinta{grid-column:1 / -1; background:var(--tinta); color:var(--crema); padding:clamp(20px,3vw,30px) clamp(24px,3.4vw,40px);
+    font-weight:800; font-size:clamp(17px,2.4vw,25px); line-height:1.25; letter-spacing:-.02em;}
+  .split .banda-tinta em{font-style:normal; color:var(--ambar);}
+
+  /* ── Qué recibes ── */
+  .recibes{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(26px,4vw,48px); margin-top:24px; align-items:center;}
+  .fila{display:flex; gap:16px; align-items:flex-start; padding:17px 0; border-bottom:1px solid var(--linea); font-size:15.5px; line-height:1.5;}
+  .fila:first-child{border-top:3px solid var(--tinta);}
+  .fila svg{flex:0 0 auto; margin-top:3px;}
+  .fila b{font-weight:700;}
+  .bloque-ambar{background:var(--ambar); color:var(--tinta); padding:clamp(26px,3.4vw,38px); border:3px solid var(--tinta);
+    box-shadow:8px 8px 0 var(--tinta); transition:transform .25s ease, box-shadow .25s ease;}
+  .bloque-ambar:hover{transform:translate(-3px,-3px); box-shadow:11px 11px 0 var(--tinta);}
+  .bloque-ambar p{font-weight:800; font-size:clamp(19px,2.4vw,27px); line-height:1.2; letter-spacing:-.02em; margin:0;}
+
+  /* ── Oferta ── */
+  .oferta{background:var(--tinta); color:var(--crema);}
+  .oferta .g2{align-items:center;}
+  .precio{font-weight:900; font-size:clamp(52px,10vw,116px); line-height:.85; letter-spacing:-.045em; font-variant-numeric:tabular-nums;}
+  .oferta .sub{font-weight:700; font-size:clamp(15px,2vw,18px); color:var(--verde-claro); margin-top:12px;}
+  .oferta .sub em{font-style:normal; color:var(--ambar);}
+  .oferta .nota{font-size:14px; line-height:1.6; color:#B8B4A6; max-width:46ch; margin-top:16px;}
+  .card-diag{border:3px solid var(--crema); padding:clamp(22px,3vw,32px); background:transparent;}
+  .card-diag .cap{font-weight:800; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--ambar); margin-bottom:12px;}
+  .card-diag .t{font-weight:900; font-size:clamp(26px,3.4vw,38px); line-height:.95; letter-spacing:-.03em;}
+  .card-diag p{font-size:14px; line-height:1.55; color:var(--verde-claro); margin:14px 0 20px;}
+
+  /* ── Lejos de la oficina ── */
+  .tres{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,2.6vw,26px); margin-top:28px;}
+  .tres .p{border-top:3px solid var(--verde); padding-top:16px; transition:transform .25s ease;}
+  .tres .p:hover{transform:translateY(-4px);}
+  .tres .p:last-child{border-top-color:var(--coral);}
+  .tres .n{font-weight:900; font-size:15px; color:var(--verde);}
+  .tres .p:last-child .n{color:var(--coral-txt);}
+  .tres h3{font-weight:800; font-size:17.5px; margin:10px 0 6px;}
+  .tres p{font-size:14px; line-height:1.55; color:var(--gris); margin:0;}
+
+  /* ── Agenda (pasarela) ── */
+  .agenda{border:3px solid var(--tinta); margin-top:26px; background:var(--crema);}
+  .pasos-agenda{display:grid; grid-template-columns:repeat(3,minmax(0,1fr));}
+  .pa{padding:clamp(20px,2.8vw,30px); border-right:1px solid var(--linea);}
+  .pa:last-child{border-right:0;}
+  .pa .n{font-weight:900; font-size:clamp(30px,3.4vw,38px); line-height:.85; letter-spacing:-.04em; color:var(--verde);}
+  .pa:last-child .n{color:var(--coral-txt);}
+  .pa h3{font-weight:800; font-size:17px; line-height:1.2; margin:12px 0 6px;}
+  .pa p{font-size:14px; line-height:1.55; color:var(--gris); margin:0;}
+  .agenda-cta{display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    padding:clamp(18px,2.4vw,26px) clamp(20px,2.8vw,30px); background:var(--crema-suave); border-top:3px solid var(--tinta);}
+  .agenda-cta .micro{margin:0; max-width:40ch;}
+
+  /* ── FAQ ── */
+  details{border-bottom:1px solid var(--linea);}
+  details:first-of-type{border-top:3px solid var(--tinta);}
+  summary{cursor:pointer; list-style:none; padding:18px 40px 18px 2px; min-height:44px; position:relative;
+    font-weight:700; font-size:clamp(15.5px,2vw,18px); line-height:1.35;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+"; position:absolute; right:8px; top:14px; font-weight:800; font-size:22px; color:var(--coral-txt); transition:transform .25s ease;}
+  details[open] summary::after{transform:rotate(45deg);}
+  .ans{padding:0 2px 20px; color:var(--gris-osc); font-size:15px; line-height:1.6; max-width:64ch;}
+
+  /* ── Cierre ── */
+  .cierre{background:var(--verde); color:var(--crema);}
+  .cierre .firma{font-weight:800; font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--ambar); margin-bottom:18px;}
+  .cierre h2{color:var(--crema); font-size:clamp(34px,7vw,86px); font-weight:900; line-height:.95; max-width:15ch;}
+  .cierre h2 em{font-style:normal; color:var(--ambar);}
+  .cierre .lead{color:var(--verde-claro); margin-top:20px;}
+  .cierre .micro{color:#B7CBBB;}
+  .foot{display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;
+    margin-top:48px; padding-top:20px; border-top:1px solid rgba(251,246,236,.3); font-size:13.5px;}
+  .foot a{color:var(--verde-claro); font-weight:500;}
+  .foot .wm{color:var(--crema); font-size:22px;}
+
+  /* ── Reveal motion (mejora progresiva: sin JS todo es visible) ── */
+  .anim .rv{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; transition-delay:var(--d,0ms);}
+  .anim .rv.in{opacity:1; transform:none;}
+  .anim .rule{transform:scaleX(0); transition:transform .6s ease;}
+  .anim .rule.in{transform:scaleX(1);}
+
+  /* ── Responsive ── */
+  @media (max-width:900px){
+    .g2,.recibes{grid-template-columns:1fr;}
+    .pasos{grid-template-columns:1fr 1fr;}
+    .split{grid-template-columns:1fr;}
+    .tres{grid-template-columns:1fr;}
+    .pasos-agenda{grid-template-columns:1fr;}
+    .pa{border-right:0; border-bottom:1px solid var(--linea);}
+    .pa:last-child{border-bottom:0;}
+    .agenda-cta{flex-direction:column; align-items:stretch;}
+  }
+  @media (max-width:560px){
+    .pasos{grid-template-columns:1fr;}
+    .orden .lbl{display:none;}
+    .cta{width:100%;}
+    .bar-in .cta.sm{width:auto;}
+    .hero h1 br{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .rv,.rule{opacity:1; transform:none; transition:none;}
+    .orden .sq{transform:none !important; transition:none;}
+    .marquee .track{animation:none;}
+    .in .hero-stroke path{animation:none; stroke-dashoffset:0;}
+    .cta,.paso,.tres .p,.bloque-ambar{transition:none;}
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="bar-in">
+    <div class="wm">AVE<span>.</span></div>
+    <a class="cta sm" data-agenda href="mailto:contacto@miavejecutivo.com?subject=Agenda%20mi%20diagn%C3%B3stico%20%E2%80%94%20AVE">Agenda tu diagnóstico <span class="arw">→</span></a>
+  </div>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="wrap hero rv in">
+    <p class="eyebrow">AVE — Ecosistemas de gestión de datos · Chile</p>
+    <h1>El orden que<br> te da <span class="hl">el control<svg class="hero-stroke" viewBox="0 0 244 20" aria-hidden="true"><path class="brocha" d="M4.2,9.4 C7,6.8 15,5.8 29,5.4 C79,4 141,3.8 197,5.2 C215,5.7 229,6.5 238,7.4 C240.4,7.9 240.2,8.9 238.2,9.2 C229,9.8 215,10 197,10.4 C141,11.7 83,13.4 35,15.2 C20.6,15.8 9.8,15.3 5.4,13.8 C2.8,12.5 2.2,10.8 4.2,9.4 Z"/><path class="cerda" d="M23,11.2 C71,9.2 131,8.2 187,8.1 C207,8.1 223,8.3 233,8.6"/><path class="cerda" d="M32,14 C78,12 130,10.6 180,10.2"/><path class="brocha" d="M233,11.9 C237,11.7 241.6,12.1 243,12.7 C239.4,12.9 234.6,12.7 233,11.9 Z" opacity=".7"/></svg></span>.</h1>
+    <p class="lead" style="margin-top:28px;"><b>Ayudamos a construir tu ecosistema de gestión de datos a través de IA.</b> Ordenamos la información dispersa de tu negocio —banco, SII, correo, planillas— y montamos un sistema que te la entrega al día, sola. Para que el negocio funcione sin que estés encima, y tú decidas dónde estar.</p>
+    <div class="cta-row">
+      <a class="cta" data-agenda href="mailto:contacto@miavejecutivo.com?subject=Agenda%20mi%20diagn%C3%B3stico%20%E2%80%94%20AVE">Agenda tu diagnóstico <span class="arw">→</span></a>
+    </div>
+    <p class="micro">Diagnóstico de $30.000 que pagas <b>al final</b>, cuando ya lo tienes en tus manos. Y si avanzas, se descuenta de tu primera cuota.</p>
+
+    <div class="orden" aria-hidden="true">
+      <div class="sq" style="--i:0"></div><div class="sq" style="--i:1"></div><div class="sq" style="--i:2"></div>
+      <div class="sq" style="--i:3"></div><div class="sq" style="--i:4"></div><div class="sq" style="--i:5"></div>
+      <div class="sq" style="--i:6"></div><div class="sq" style="--i:7"></div><div class="sq" style="--i:8"></div>
+      <div class="sq" style="--i:9"></div>
+      <div class="lbl">De disperso<br>a ordenado</div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <div class="chunk"><span>La calma es un sistema</span><span class="dotsep">●</span><span>El orden que te da el control</span><span class="dotsep">●</span><span>Que tu negocio trabaje para ti</span><span class="dotsep">●</span></div>
+      <div class="chunk"><span>La calma es un sistema</span><span class="dotsep">●</span><span>El orden que te da el control</span><span class="dotsep">●</span><span>Que tu negocio trabaje para ti</span><span class="dotsep">●</span></div>
+    </div>
+  </div>
+
+  <!-- PROBLEMA / TEST -->
+  <section class="banda-verde">
+    <div class="wrap g2">
+      <div class="rv">
+        <div class="num-xl">01</div>
+        <h2>Crees que tienes el control porque estás en todo.</h2>
+      </div>
+      <div class="rv" style="--d:120ms">
+        <p class="lead">La información existe —banco, SII, correo, diez planillas que solo entiendes tú—, pero nunca en un solo lugar. Como nadie la juntó en un sistema, el único lugar donde todo se reúne es tu cabeza. Por eso el negocio no camina sin ti.</p>
+        <div class="test-t">Hazte el test</div>
+        <div class="test-row"><span class="d">—</span> ¿Cuántas horas al mes armas reportes a mano?</div>
+        <div class="test-row"><span class="d">—</span> ¿Cuántas versiones del mismo Excel circulan?</div>
+        <div class="test-row"><span class="d">—</span> Si te vas una semana, ¿el negocio te sigue informando solo?</div>
+        <div class="test-row"><span class="d">—</span> ¿Cuándo fue tu último día realmente libre?</div>
+        <p class="punch">Si dudaste en alguna, no te falta capacidad. Te falta orden.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="wrap">
+    <div class="rule rv"></div>
+    <span class="idx">02 — Cómo lo hacemos</span>
+    <h2 class="rv" style="max-width:18ch; margin-top:12px;">De disperso a ordenado, en cuatro pasos.</h2>
+    <div class="pasos">
+      <div class="paso rv" style="--d:0ms"><div class="n">01</div><h3>Diagnóstico</h3><p>Miramos de dónde salen tus datos y qué decisiones necesitas. Sales sabiendo qué ordenar y con qué prioridad.</p></div>
+      <div class="paso rv" style="--d:90ms"><div class="n">02</div><h3>Ordenamos</h3><p>Banco, SII, correo y planillas en una sola estructura confiable. Se acaba el “¿cuál es la versión buena?”.</p></div>
+      <div class="paso ia rv" style="--d:180ms"><div class="n">03</div><h3>Procesamos</h3><p>Fórmulas donde basta —a costo $0— e IA solo donde de verdad suma. La IA que se use es tuya y la pagas directo al proveedor, sin intermediarios.</p></div>
+      <div class="paso rv" style="--d:270ms"><div class="n">04</div><h3>Informes + equipo</h3><p>Informes que se ponen al día solos y tu equipo capacitado. El sistema queda contigo, no con nosotros.</p></div>
+    </div>
+  </section>
+
+  <!-- IA CON CRITERIO -->
+  <section class="wrap" style="padding-top:0;">
+    <div class="rule rv"></div>
+    <span class="idx">03 — Construimos con IA, no vivimos de ella</span>
+    <h2 class="rv" style="max-width:22ch; margin-top:12px;">Nosotros no cobramos la IA. La usamos lo justo y necesario.</h2>
+    <p class="lead rv">Usamos IA para construir tu ecosistema y te enseñamos a usarla —esa parte es tuya para siempre—. Pero adentro, ya funcionando, la IA entra solo donde suma: cada cliente paga la suya directo al proveedor y solo por lo que usa. No la revendemos ni le ponemos margen; nuestro trabajo es que necesites la menor cantidad posible.</p>
+    <div class="split rv">
+      <div class="lado verde">
+        <div class="big">$0</div>
+        <div class="cap">Sin IA · con fórmulas</div>
+        <ul><li>Flujo de caja y saldos proyectados</li><li>F29 e impuestos estimados</li><li>Cotizaciones, cobranza y aging</li><li>KPIs, márgenes y comparativas</li></ul>
+      </div>
+      <div class="lado crema">
+        <div class="big">IA</div>
+        <div class="cap">Solo donde suma · la pagas tú, directo</div>
+        <ul><li>Clasificar correos y documentos</li><li>Leer facturas y PDFs</li><li>Redactar borradores y resúmenes</li><li>Ordenar lo que llega sin estructura</li></ul>
+      </div>
+      <div class="banda-tinta">Donde basta una fórmula, usamos la fórmula. <em>Así tu cuenta de IA se mantiene mínima.</em></div>
+    </div>
+  </section>
+
+  <!-- QUÉ RECIBES -->
+  <section class="wrap" style="padding-top:0;">
+    <div class="rule rv"></div>
+    <span class="idx">04 — Qué queda instalado</span>
+    <div class="recibes">
+      <div class="rv">
+        <div class="fila"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6" stroke="#0C5A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Tus números al día sin que estés encima.</b> Llegan solos; dejas de armar planillas y perseguir reportes.</div></div>
+        <div class="fila"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6" stroke="#0C5A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Un sistema en tus propias herramientas.</b> Trabajamos sobre lo que ya usas; lo único nuevo es tu cuenta de IA, que te dejamos configurada.</div></div>
+        <div class="fila"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6" stroke="#0C5A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Tu equipo capacitado —también en IA.</b> Aprenden a leer los informes, a mantener el sistema y a usar la IA con criterio. No depende de una sola persona —ni de nosotros.</div></div>
+        <div class="fila"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6" stroke="#0C5A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Acompañamiento durante el primer año.</b> No entregamos un archivo y desaparecemos.</div></div>
+      </div>
+      <div class="bloque-ambar rv" style="--d:150ms">
+        <p>Al año no tienes un proyecto cerrado: tienes una empresa que se lee sola —para que tú no tengas que estar leyéndola.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section class="oferta">
+    <div class="wrap g2">
+      <div class="rv">
+        <span class="idx" style="color:var(--ambar); padding-top:0;">05 — La inversión</span>
+        <div class="precio" style="margin-top:14px;">$<span data-count="300000">0</span></div>
+        <div class="sub">al mes · 12 cuotas iguales · <em>pagas mientras recibes valor</em></div>
+        <p class="nota">Es el orden de tus datos repartido en un año, no un gasto de golpe. El Diagnóstico define el alcance y la cuota exacta para tu caso.</p>
+      </div>
+      <div class="card-diag rv" style="--d:150ms">
+        <div class="cap">Empieza aquí</div>
+        <div class="t">Diagnóstico<br>$<span data-count="30000">0</span></div>
+        <p>No pagas nada por adelantado: lo pagas al final, con el informe ya entregado. Te lo llevas decidas o no avanzar, y si avanzas se descuenta completo de tu primera cuota.</p>
+        <a class="cta invert" data-agenda href="mailto:contacto@miavejecutivo.com?subject=Agenda%20mi%20diagn%C3%B3stico%20%E2%80%94%20AVE">Agenda tu diagnóstico <span class="arw" style="color:var(--coral);">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEJOS DE LA OFICINA -->
+  <section class="wrap">
+    <div class="rule rv"></div>
+    <span class="idx">06 — Cómo lo contamos</span>
+    <h2 class="rv" style="margin-top:12px;">Lejos de la oficina.</h2>
+    <p class="lead rv">La mejor prueba de que esto funciona no es un gráfico: es un dueño tranquilo, un martes cualquiera, lejos de la oficina —porque su negocio sigue andando sin que esté encima. Estamos empezando, así que no te vamos a inventar testimonios. Te mostramos la verdad, en tres pasos honestos:</p>
+    <div class="tres">
+      <div class="p rv" style="--d:0ms"><div class="n">01</div><h3>Nosotros primero</h3><p>El consultor que no trabaja los viernes: nos aplicamos nuestro propio método.</p></div>
+      <div class="p rv" style="--d:100ms"><div class="n">02</div><h3>Día 1</h3><p>Seguimos un diagnóstico real, sin prometer un “después”. El punto de partida, tal cual.</p></div>
+      <div class="p rv" style="--d:200ms"><div class="n">03</div><h3>La silla vacía</h3><p>Reservada para el primer dueño que ordene su negocio y quiera contarlo. Sin libreto.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wrap" style="padding-top:0;">
+    <span class="idx">07 — Lo que probablemente estás pensando</span>
+    <h2 class="rv" style="margin:12px 0 24px;">Preguntas frecuentes</h2>
+    <div class="rv">
+      <details><summary>“Suena caro para mi tamaño.”</summary><div class="ans">Parte desde 12 cuotas de $300.000, pensado para que pagues mientras recibes valor: montaje al principio y acompañamiento durante el año. El Diagnóstico ($30.000, que pagas recién al final) define el alcance y el precio para tu caso puntual, sin paquetes que no necesitas.</div></details>
+      <details><summary>“¿Cuándo pago el diagnóstico?”</summary><div class="ans">Al final, cuando ya te lo entregamos. No pagas nada por adelantado ni dejas datos de tarjeta para agendar: reservas tu hora, hacemos el trabajo, recibes el informe y recién ahí pagas los $30.000. Si decides avanzar, se descuentan completos de tu primera cuota.</div></details>
+      <details><summary>“¿Y quién paga la IA?”</summary><div class="ans">Tú, directo al proveedor y solo por lo que uses. Nosotros no la revendemos ni le ponemos margen — y como donde basta una fórmula usamos la fórmula, nuestro trabajo es que tu cuenta de IA sea lo más chica posible.</div></details>
+      <details><summary>“¿Voy a tener que aprender y pagar otra plataforma?”</summary><div class="ans">Una sola: la de IA, y es tuya. Todo el sistema se monta sobre las herramientas que ya usas —no te cambiamos la forma de trabajar ni te amarramos a un software nuestro—. Lo único nuevo es una cuenta de IA a tu nombre, que pagas directo al proveedor y solo por lo que uses. Te la dejamos configurada y te enseñamos a ocuparla: aprender a usarla bien es parte de lo que te llevas.</div></details>
+      <details><summary>“No tengo tiempo para meterme en esto.”</summary><div class="ans">Ese es justamente el punto. El trabajo pesado de ordenar y montar lo hacemos nosotros. Tu parte es el Diagnóstico inicial, revisar que los informes digan lo que necesitas y unas sesiones cortas de capacitación; después, el sistema corre solo.</div></details>
+      <details><summary>“Mis datos son un desorden, me da vergüenza mostrarlos.”</summary><div class="ans">Llegamos a negocios así todos los días; ese desorden es el punto de partida normal, no un problema tuyo. Ordenar lo disperso es literalmente el primer paso de nuestro trabajo.</div></details>
+      <details><summary>“¿Esto sirve para mi rubro?”</summary><div class="ans">El método no depende del rubro, sino de que tomes decisiones con datos —y eso lo hace cualquier negocio. En el Diagnóstico adaptamos los informes a lo que de verdad mueve tu operación.</div></details>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="wrap" id="agendar" style="padding-top:0;">
+    <div class="rule rv"></div>
+    <span class="idx">08 — Agenda</span>
+    <h2 class="rv" style="margin-top:12px;">Eliges tu hora. El resto lo hacemos nosotros.</h2>
+    <div class="agenda rv">
+      <div class="pasos-agenda">
+        <div class="pa"><div class="n">01</div><h3>Reservas tu hora</h3><p>Abres el calendario y tomas el bloque que te acomode. Sin llamadas de venta previas ni datos de tarjeta.</p></div>
+        <div class="pa"><div class="n">02</div><h3>Hacemos el diagnóstico</h3><p>Revisamos de dónde salen tus datos hoy, qué decisiones necesitas tomar y qué se puede ordenar primero.</p></div>
+        <div class="pa"><div class="n">03</div><h3>Recibes el informe y pagas</h3><p>Te entregamos el diagnóstico. Recién ahí pagas los $30.000 —y si avanzas, se descuentan de tu primera cuota.</p></div>
+      </div>
+      <div class="agenda-cta">
+        <a class="cta" data-agenda href="mailto:contacto@miavejecutivo.com?subject=Agenda%20mi%20diagn%C3%B3stico%20%E2%80%94%20AVE">Agenda tu diagnóstico <span class="arw">→</span></a>
+        <p class="micro">No pagas nada por adelantado. Pagas al final, con el diagnóstico ya en tus manos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="cierre">
+    <div class="wrap rv">
+      <div class="firma">La calma es un sistema</div>
+      <h2>El orden que te da el control. <em>Ordenémoslo.</em></h2>
+      <p class="lead">El primer paso es un diagnóstico: una conversación clara sobre tu situación, que pagas al final y no te obliga a seguir. Y después, anda a hacer otra cosa.</p>
+      <a class="cta invert" data-agenda href="mailto:contacto@miavejecutivo.com?subject=Agenda%20mi%20diagn%C3%B3stico%20%E2%80%94%20AVE" style="margin-top:10px;">Agenda tu diagnóstico <span class="arw" style="color:var(--coral);">→</span></a>
+      <p class="micro">$30.000 que pagas al final, con el diagnóstico entregado. Después, desde 12 cuotas de $300.000.</p>
+      <div class="foot">
+        <div class="wm">AVE<span style="color:var(--ambar);">.</span></div>
+        <span style="color:var(--verde-claro);">Ecosistemas de gestión de datos a través de IA · Chile</span>
+        <a href="mailto:contacto@miavejecutivo.com">contacto@miavejecutivo.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  /* ─────────────────────────────────────────────────────────────
+     AGENDA — pega aquí el link de tu calendario de citas.
+     Ej: "https://calendar.app.google/xxxxxxxx"
+     Mientras esté vacío, los botones abren un correo a contacto@.
+     ───────────────────────────────────────────────────────────── */
+  var AGENDA_URL = "https://calendar.google.com/appointments/schedules/AcZssZ19mIU9CWK-z3432Oo3X_-0xPAVo6lqH83LbntRgABgQF33WmlwHP9sr8-0-4ovr-nrAQrOpn4T";
+
+  if (AGENDA_URL) {
+    Array.prototype.slice.call(document.querySelectorAll('[data-agenda]')).forEach(function(a){
+      a.setAttribute('href', AGENDA_URL);
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+    });
+  }
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) document.documentElement.classList.add('anim');
+
+  var els = Array.prototype.slice.call(document.querySelectorAll('.rv, .rule, .orden'));
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  function fmt(n){ return Math.round(n).toLocaleString('es-CL'); }
+  function runCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    if (reduce){ el.textContent = fmt(target); return; }
+    var start = null, dur = 700;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/dur, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * eased);
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counts = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  if (reduce || !('IntersectionObserver' in window)) { counts.forEach(runCount); }
+  else {
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ runCount(e.target); cio.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    counts.forEach(function(el){ cio.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
